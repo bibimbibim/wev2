@@ -5,6 +5,7 @@ const chromium = require('chrome-aws-lambda');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+console.log("실행")
 
 let file_url = "";
 async function run(num) {
@@ -12,8 +13,6 @@ async function run(num) {
         const browser = await chromium.puppeteer.launch(
             {
                 executablePath: await chromium.executablePath,
-                args: ['--no-sandbox', '--disable-setuid-sandbox'],
-                defaultViewport: chromium.defaultViewport,
                 headless: "new",
             }
         );
